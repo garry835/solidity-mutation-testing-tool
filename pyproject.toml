@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "solidity-mutation-tool"
+version = "1.0.0"
+description = "A mutation testing framework for Solidity smart contracts"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Security Research Team" }
+]
+dependencies = [
+    "pytest>=8.0.0",
+    "pyyaml>=6.0.0",
+    "jinja2>=3.1.0",
+    "colorama>=0.4.6"
+]
+
+[project.scripts]
+solidity-mutate = "src.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"

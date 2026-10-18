@@ -1,0 +1,29 @@
+# Solidity Mutation Testing Framework Configuration
+
+# Default execution settings
+execution:
+  timeout_seconds: 60
+  parallel: false
+  cleanup_temp: true
+  stop_on_first_failure: false
+  forge_binary_path: null  # Auto-detected if null
+
+# Mutation operators to execute if not specified via CLI
+operators:
+  - unchecked_math
+  - reentrancy
+  - timestamp_reliance
+
+# Solidity project settings
+solidity:
+  default_src_dir: "src"
+  default_test_dir: "test"
+  supported_frameworks:
+    - foundry
+
+# Reporting configuration
+reporting:
+  output_dir: "./reports"
+  generate_json: true
+  generate_html: true
+  include_diffs: true
